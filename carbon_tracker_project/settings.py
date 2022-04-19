@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
+    'jwt_auth',
+    'days_meals',
     
 ]
 
@@ -153,6 +155,6 @@ REST_FRAMEWORK = {
         'jwt_auth.authentication.JWTAuthentication',
     ],
 }
-# AUTH_USER_MODEL = 'jwt_auth.CustomUser'
+AUTH_USER_MODEL = 'jwt_auth.CustomUser'
 
 django_on_heroku.settings(locals())

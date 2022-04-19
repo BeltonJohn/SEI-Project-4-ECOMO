@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from days_meals.views import DaysMealsCreate
+from days_meals.views import DaysMealsCreate, FoodComponentsCreate
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('authentication/', include("jwt_auth.urls")),
-    path('create/', DaysMealsCreate.as_view())
+    path('create/', DaysMealsCreate.as_view()),
+    path('footprint/create/', FoodComponentsCreate.as_view())
 ]
