@@ -4,12 +4,6 @@ from django.db import models
 User = get_user_model()
 # Create your models here.
 
-class DayMeals(models.Model):
-   day = models.CharField(max_length=100)
-
-   owner = models.ForeignKey(User, related_name='users', on_delete=models.CASCADE)
-
-
 
 class FoodComponent(models.Model):
   name = models.CharField(max_length=200)
@@ -20,3 +14,13 @@ class FoodComponent(models.Model):
         return self.name
 
 
+
+class DayMeal(models.Model):
+   day = models.CharField(max_length=100)
+
+   owner = models.ForeignKey(User, related_name='users', on_delete=models.CASCADE)
+
+   items = models.ManyToManyField(FoodComponent, related_name='meals', blank=False)
+
+   def __all__(self):
+        return self
