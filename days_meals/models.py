@@ -22,5 +22,7 @@ class DayMeal(models.Model):
 
    items = models.ManyToManyField(FoodComponent, related_name='meals', blank=False)
 
+   portion = models.IntegerField(null=True)
+
    def __all__(self):
         return self

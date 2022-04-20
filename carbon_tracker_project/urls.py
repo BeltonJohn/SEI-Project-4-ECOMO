@@ -15,11 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from days_meals.views import DaysMealsCreate, FoodComponentsCreate
+from days_meals.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('authentication/', include("jwt_auth.urls")),
     path('create/', DaysMealsCreate.as_view()),
-    path('footprint/create/', FoodComponentsCreate.as_view())
+    path('meals/', DaysMealsList.as_view()),
+    path('footprint/create/', FoodComponentsCreate.as_view()),
+    path('footprint/list/', FoodComponentsList.as_view()),
+    path('footprint/<int:pk>/', FoodComponentsUpdateDestroy.as_view()),
+    # path('footprint/<int:pk>/', FoodComponentRetrieveUpdateDelete.as_view())
 ]
