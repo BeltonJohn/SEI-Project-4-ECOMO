@@ -28,7 +28,7 @@ class DaysMealsCreate(APIView):
     def post(self, request):
 
       request.data['owner'] = request.user.id
-
+      print(request.user.id)
       day_meal__serializer = DayMealSerializer(data=request.data)
 
       if day_meal__serializer.is_valid():
