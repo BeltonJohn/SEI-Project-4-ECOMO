@@ -16,7 +16,7 @@ class FoodComponent(models.Model):
 
 
 class DayMeal(models.Model):
-   day = models.CharField(max_length=100)
+   day = models.CharField(max_length=100, blank=True)
 
    owner = models.ForeignKey(User, related_name='users', on_delete=models.CASCADE)
 

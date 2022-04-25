@@ -20,8 +20,11 @@ class DayMealSerializer(serializers.ModelSerializer):
         fields = ('__all__')
 
 
+class CreateDayMealSerializer(serializers.ModelSerializer):
 
-
+    class Meta:
+        model = DayMeal
+        fields = ('__all__')
 
 
 

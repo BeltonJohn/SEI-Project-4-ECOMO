@@ -26,10 +26,9 @@ class DaysMealsCreate(APIView):
     permission_classes = [IsAuthenticated, ]
 
     def post(self, request):
-
       request.data['owner'] = request.user.id
-      print(request.user.id)
-      day_meal__serializer = DayMealSerializer(data=request.data)
+
+      day_meal__serializer = CreateDayMealSerializer(data=request.data)
 
       if day_meal__serializer.is_valid():
 
@@ -78,11 +77,6 @@ class FoodComponentsUpdateDestroy(RetrieveUpdateDestroyAPIView):
     queryset = FoodComponent.objects.all()
 
     serializer_class = FoodComponentSerializer
-
-
-
-
-
 
 
 
